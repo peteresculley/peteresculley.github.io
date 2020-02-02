@@ -1,0 +1,24 @@
+html {
+    font-size: 2.3vh;
+}
+
+body {
+    margin: 60px auto;
+    width: 70%;
+}
+
+.description {
+    font-size: 1.05em;
+}
+
+.links {
+    margin-top: 4em;
+}
+
+.link {
+    margin-top: 15px;
+}
+
+.link a {
+    font-size: 1.3em;
+}
