@@ -1,32 +1,313 @@
+/* ---------- Theme tokens ---------- */
+:root {
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --text: #1c2530;
+  --muted: #5c6b7a;
+  --border: #e2e6ec;
+  --accent: #2f6df6;
+  --accent-soft: rgba(47, 109, 246, 0.1);
+  --chip-bg: #eef1f6;
+  --shadow: 0 1px 2px rgba(20, 30, 45, 0.05), 0 8px 24px rgba(20, 30, 45, 0.06);
+  --radius: 14px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1419;
+    --surface: #171d25;
+    --text: #e8edf3;
+    --muted: #9aa8b6;
+    --border: #262e39;
+    --accent: #6ea0ff;
+    --accent-soft: rgba(110, 160, 255, 0.14);
+    --chip-bg: #212a35;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
 html {
-    font-size: 2.3vh;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-    margin: 60px auto;
-    width: 70%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-.description {
-    font-size: 1.05em;
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 1.25rem 3rem;
 }
 
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+
+section {
+  margin-top: 2.75rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.avatar {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--surface);
+  box-shadow: var(--shadow);
+  flex-shrink: 0;
+}
+
+.tagline {
+  margin: 0.35rem 0 0;
+  font-size: 1.1rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.location {
+  margin: 0.5rem 0 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.pin {
+  width: 16px;
+  height: 16px;
+  fill: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ---------- About ---------- */
+.about {
+  margin-top: 2rem;
+  font-size: 1.08rem;
+}
+
+.about p {
+  margin: 0;
+}
+
+/* ---------- Skill chips ---------- */
+.chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chips li {
+  background: var(--chip-bg);
+  color: var(--text);
+  padding: 0.32rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ---------- Experience timeline ---------- */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.timeline li {
+  position: relative;
+  padding: 0 0 1.75rem 1.5rem;
+  border-left: 2px solid var(--border);
+}
+
+.timeline li:last-child {
+  padding-bottom: 0;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+}
+
+.role {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.company {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.dates {
+  color: var(--muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.position {
+  margin: 0.1rem 0 0.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.summary {
+  margin: 0;
+  color: var(--text);
+}
+
+.education {
+  margin: 1.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- Link cards ---------- */
 .links {
-    margin-top: 4em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
 }
 
-.link {
-    margin-top: 15px;
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.9rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-weight: 500;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, border-color 0.15s ease;
 }
 
-.link a {
-    font-size: 1.3em;
+.link-card:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  border-color: var(--accent);
 }
 
+.link-card svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* ---------- Simple top nav (used by secondary pages) ---------- */
+nav.topnav {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+nav.topnav a {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+nav.topnav a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ---------- Buttons (test area) ---------- */
 .download-button {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 10px;
+  display: inline-block;
+  padding: 0.6rem 1.1rem;
+  cursor: pointer;
+  font-weight: 500;
+  box-shadow: var(--shadow);
+}
+
+.download-button:hover {
+  border-color: var(--accent);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  .page {
+    padding: 2.5rem 1.1rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .location {
+    justify-content: center;
+  }
 }
